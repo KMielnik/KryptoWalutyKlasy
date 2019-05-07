@@ -14,6 +14,8 @@ namespace KryptoKlasy
 
         public Portfel PortfelBitcoin { get; private set; }
         public Portfel PortfelDogecoin { get; private set; }
+        public Portfel PortfelFIAT { get; private set; }
+
 
         Uzytkownik(string imie, string nazwisko, string email, string haslo, string nrKonta, DateTime dataUrodzenia)
         {
@@ -21,6 +23,7 @@ namespace KryptoKlasy
             Nazwisko = nazwisko;
             PortfelBitcoin = new Portfel(Portfel.Waluta.Bitcoin);
             PortfelDogecoin = new Portfel(Portfel.Waluta.DogeCoin);
+            PortfelFIAT = new Portfel(Portfel.Waluta.FIAT);
         }
     }
 }

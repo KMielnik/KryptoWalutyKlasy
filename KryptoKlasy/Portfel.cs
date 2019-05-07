@@ -4,12 +4,8 @@ using System.Text;
 
 namespace KryptoKlasy
 {
-    public class Portfel
+    public partial class Portfel
     {
-        public enum Waluta
-        {
-            Bitcoin, LiteCoin, DogeCoin
-        }
         public Waluta TypPortfela { get; private set; }
         public float Saldo { get ; private set ; }
         public string KluczPrywatny { get ; private set; }
