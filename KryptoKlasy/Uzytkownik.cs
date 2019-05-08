@@ -6,6 +6,8 @@ namespace KryptoKlasy
 {
     public class Uzytkownik
     {
+        public bool UzytkownikPremium { get; set; }
+        public DateTime KoniecPremium { get; set; }
         public string Imie { get; private set; }
         public string Nazwisko { get; private set; }
         public string Email { get; private set; }
@@ -17,7 +19,7 @@ namespace KryptoKlasy
         public Portfel PortfelFIAT { get; private set; }
 
 
-        Uzytkownik(string imie, string nazwisko, string email, string haslo, string nrKonta, DateTime dataUrodzenia)
+        public Uzytkownik(string imie, string nazwisko, string email, string haslo, string nrKonta, DateTime dataUrodzenia)
         {
             Imie = imie;
             Nazwisko = nazwisko;
