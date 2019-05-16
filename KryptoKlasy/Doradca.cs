@@ -12,7 +12,11 @@ namespace KryptoKlasy
 
         public Doradca(string imie, string nazwisko, string email, string haslo, DateTime dataUrodzenia)
         {
-
+            Imie = imie;
+            Nazwisko = nazwisko;
+            Email = email;
+            Haslo = haslo;
+            DataUrodzenia = dataUrodzenia;
         }
     }
 }

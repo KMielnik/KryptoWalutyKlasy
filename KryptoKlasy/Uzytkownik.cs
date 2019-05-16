@@ -6,7 +6,7 @@ namespace KryptoKlasy
 {
     public class Uzytkownik
     {
-        public bool UzytkownikPremium { get; set; }
+        public bool UzytkownikPremium { get => KoniecPremium > DateTime.Now; }
         public DateTime KoniecPremium { get; set; }
         public string Imie { get; private set; }
         public string Nazwisko { get; private set; }
@@ -23,9 +23,13 @@ namespace KryptoKlasy
         {
             Imie = imie;
             Nazwisko = nazwisko;
+            Email = email;
+            Haslo = haslo;
+            DataUrodzenia = dataUrodzenia;
             PortfelBitcoin = new Portfel(Portfel.Waluta.Bitcoin);
             PortfelDogecoin = new Portfel(Portfel.Waluta.DogeCoin);
-            PortfelFIAT = new Portfel(Portfel.Waluta.FIAT);
+            PortfelFIAT = new Portfel(Portfel.Waluta.FIAT, nrKonta);
+            KoniecPremium = DateTime.MinValue;
         }
     }
 }

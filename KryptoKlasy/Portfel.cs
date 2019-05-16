@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 
 namespace KryptoKlasy
@@ -15,8 +14,16 @@ namespace KryptoKlasy
         {
             TypPortfela = typ;
             Saldo = 0;
-            KluczPrywatny = "Elo";
-            KluczPubliczny = "444";
+            KluczPrywatny = RandomGenerator.GetInstance().GetRandomString();
+            KluczPubliczny = "P" + KluczPrywatny;
+        }
+
+        public Portfel(Waluta typ,string kluczPubliczny)
+        {
+            TypPortfela = typ;
+            Saldo = 0;
+            KluczPrywatny = RandomGenerator.GetInstance().GetRandomString();
+            KluczPubliczny = kluczPubliczny;
         }
     }
 }
