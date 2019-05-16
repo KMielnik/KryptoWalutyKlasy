@@ -23,5 +23,8 @@ namespace KryptoKlasy
         {
             return random.Next().ToString();
         }
+
+        public double GetRandomDouble(int min, int max)
+            => (max - min) * random.NextDouble() + min;
     }
 }
