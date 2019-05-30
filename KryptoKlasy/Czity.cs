@@ -13,5 +13,16 @@ namespace KryptoKlasy
             date += TimeSpan.FromDays(1);
             return date;
         }
+
+        public static void Loading(int time=300)
+        {
+            Console.Write("Loading");
+            for(int i=0;i<5;i++)
+            {
+                Console.Write(".");
+                System.Threading.Thread.Sleep(time);
+            }
+            Console.WriteLine();
+        }
     }
 }

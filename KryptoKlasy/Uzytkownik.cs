@@ -9,14 +9,16 @@ namespace KryptoKlasy
         public bool UzytkownikPremium { get => KoniecPremium > DateTime.Now; }
         public DateTime KoniecPremium { get; set; }
         public string Imie { get; private set; }
-        public string Nazwisko { get; private set; }
+        public string Nazwisko { get;  set; }
         public string Email { get; private set; }
-        public string Haslo { get; private set; }
+        public string Haslo { get;  set; }
         public DateTime DataUrodzenia { get; private set; }
 
         public Portfel PortfelBitcoin { get; private set; }
         public Portfel PortfelDogecoin { get; private set; }
         public Portfel PortfelFIAT { get; private set; }
+
+        public ConsoleColor TloStrony { get; set; }
 
 
         public Uzytkownik(string imie, string nazwisko, string email, string haslo, string nrKonta, DateTime dataUrodzenia)
@@ -30,6 +32,8 @@ namespace KryptoKlasy
             PortfelDogecoin = new Portfel(Portfel.Waluta.DogeCoin);
             PortfelFIAT = new Portfel(Portfel.Waluta.FIAT, nrKonta);
             KoniecPremium = DateTime.MinValue;
+
+            TloStrony = ConsoleColor.Black;
         }
     }
 }
