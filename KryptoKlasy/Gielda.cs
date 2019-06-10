@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace KryptoKlasy
 {
@@ -26,6 +28,12 @@ namespace KryptoKlasy
                 radnom.GetRandomDouble(47, 124));
             return snapshot;
         }
-        public List<GieldaSnapshot> PobierzHistorie() => historiaSnapshotow;
+        public List<GieldaSnapshot> PobierzHistorie() 
+            => historiaSnapshotow;
+        public string HistoriaOstatnie5Dni()
+            => historiaSnapshotow
+                .Skip(Math.Max(0, historiaSnapshotow.Count - 5))
+                .Take(5)
+                .Aggregate("Wartosci z 5 ostatnich dni:\n", (acc, next) => acc += $"{next.ToString()}\n");
     }
 }

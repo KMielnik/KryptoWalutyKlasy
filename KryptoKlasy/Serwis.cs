@@ -23,7 +23,7 @@ namespace KryptoKlasy
             if (uzytownik != null)
             {
                 Console.BackgroundColor = uzytownik.TloStrony;
-                Console.Clear();
+                Console.WriteLine("Zmieniono kolor strony");
             }
             return uzytownik;
         }
@@ -40,7 +40,6 @@ namespace KryptoKlasy
         public Uzytkownik WylogujSie(Uzytkownik uzytkownik)
         {
             Console.BackgroundColor = ConsoleColor.Black;
-            Console.Clear();
             return null;
         }
         public bool UsunDane(Uzytkownik uzytkownik) => uzytkownicy.Remove(uzytkownik);
@@ -55,12 +54,11 @@ namespace KryptoKlasy
             if (uzytkownik == null)
                 return false;
 
-            Console.WriteLine("UWAGA, TA OPERACJA WYCZYSCI EKRAN");
-            Console.ReadKey(true);
+            Console.WriteLine("Zmiana koloru okna:");
 
             uzytkownik.TloStrony = consoleColor;
             Console.BackgroundColor = uzytkownik.TloStrony;
-            Console.Clear();
+            Console.WriteLine("Zmieniono!");
             return true;
         }
         public bool ZmienNazwisko(Uzytkownik uzytkownik, string noweNazwisko)

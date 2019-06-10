@@ -8,20 +8,25 @@ namespace KryptoKlasy
     {
         public static void Main()
         {
-            //ScenariuszGielda();
-            ScenariuszUzytkownicy();
+            ScenariuszGielda();
+            //ScenariuszUzytkownicy();
             Console.ReadKey();
         }
 
         public static void ScenariuszGielda()
         {
+            Console.WriteLine("Inicjalizacja giełdy");
             Gielda gielda = new Gielda();
             for (int i = 0; i < 10; i++)
                 gielda.WygenerujIZapiszSnapshot();
 
+            Console.WriteLine("Pobierz cała historie gieldy");
             foreach (var snapshot in gielda.PobierzHistorie())
                 Console.WriteLine(snapshot);
 
+            Console.WriteLine();
+            Console.WriteLine("Pobierz historie ostatnich 5 dni.");
+            Console.WriteLine(gielda.HistoriaOstatnie5Dni());
         }
 
         public static void ScenariuszUzytkownicy()

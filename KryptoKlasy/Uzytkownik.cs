@@ -35,5 +35,10 @@ namespace KryptoKlasy
 
             TloStrony = ConsoleColor.Black;
         }
+
+        public override string ToString()
+        {
+            return $"Uzytkownik o emailu: {Email}";
+        }
     }
 }
