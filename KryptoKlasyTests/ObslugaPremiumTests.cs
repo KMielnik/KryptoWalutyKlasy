@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using NUnit.Framework;
 using KryptoKlasy;
+using System.Linq;
 
 namespace KryptoKlasyTests
 {
@@ -70,6 +71,29 @@ namespace KryptoKlasyTests
         {
             var uzytkownik = serwis.ZalogujSie("email@wp.pl", "haslo1");
             Assert.IsNotNull(uzytkownik);
+
+            string naszaWiadomosc = "Hej, oto moj 1 post prosze byc dla mnie milym!!";
+            obslugaPremium.DodajPost(uzytkownik, naszaWiadomosc);
+
+            var forum = obslugaPremium.PobierzZawartoscForum();
+
+            var ilosc_wiadomosci_o_naszej_tresci = forum.Where(x => x.Contains(naszaWiadomosc))
+                                                        .Count();
+            Assert.Greater(ilosc_wiadomosci_o_naszej_tresci, 0);
+        }
+
+        [Test]
+        public void Podgladanie_histori_transakcji_innego_uzytkownika()
+        {
+            var uzytkownik1 = serwis.ZalogujSie("email@wp.pl", "haslo1");
+            Assert.IsNotNull(uzytkownik1);
+
+            var uzytkownik2 = serwis.ZalogujSie("email2@wp.pl", "haslo2");
+            Assert.IsNotNull(uzytkownik2);
+
+            var transakcje = obslugaPremium.PodejrzyjTransakcjeUzytkownika(uzytkownik1, uzytkownik2);
+
+            Assert.IsNotNull(transakcje);
         }
     }
 }
