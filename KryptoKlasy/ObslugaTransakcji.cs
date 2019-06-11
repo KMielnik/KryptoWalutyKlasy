@@ -6,6 +6,10 @@ namespace KryptoKlasy
 {
     public class ObslugaTransakcji
     {
+        public ObslugaTransakcji()
+        {
+            historiaTransakcji = new List<Transakcja>();
+        }
         private List<Transakcja> historiaTransakcji;
         public bool DokonajTransakcji(Uzytkownik nadawca, Uzytkownik odbiorca, Portfel.Waluta waluta, float kwota)
         {

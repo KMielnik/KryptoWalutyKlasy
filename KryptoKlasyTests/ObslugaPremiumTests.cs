@@ -28,6 +28,17 @@ namespace KryptoKlasyTests
         }
 
         [Test]
+        public void Uzytkownik_wykupuje_premium_na_miesiac()
+        {
+            var uzytkownik = serwis.ZalogujSie("email@wp.pl", "haslo1");
+            Assert.IsNotNull(uzytkownik);
+
+            Assert.IsFalse(uzytkownik.UzytkownikPremium);
+            obslugaPremium.WykupPremiumNaMiesiac(uzytkownik);
+            Assert.IsTrue(uzytkownik.UzytkownikPremium);
+        }
+
+        [Test]
         public void Lista_pobranych_doradcow_nie_pusta()
         {
             var lista_doradcow = obslugaPremium.PobierzDostepnychDoradcow();
@@ -86,14 +97,20 @@ namespace KryptoKlasyTests
         public void Podgladanie_histori_transakcji_innego_uzytkownika()
         {
             var uzytkownik1 = serwis.ZalogujSie("email@wp.pl", "haslo1");
+            Uzytkownik_wykupuje_premium_na_miesiac();
             Assert.IsNotNull(uzytkownik1);
+            
 
             var uzytkownik2 = serwis.ZalogujSie("email2@wp.pl", "haslo2");
             Assert.IsNotNull(uzytkownik2);
 
+            //uzytkownik1 jest premium, 2 nie
             var transakcje = obslugaPremium.PodejrzyjTransakcjeUzytkownika(uzytkownik1, uzytkownik2);
-
             Assert.IsNotNull(transakcje);
+
+            //nie powinien miec dostepu
+            transakcje = obslugaPremium.PodejrzyjTransakcjeUzytkownika(uzytkownik2, uzytkownik1);
+            Assert.IsNull(transakcje);
         }
     }
 }
