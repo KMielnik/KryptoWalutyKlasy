@@ -13,6 +13,14 @@ namespace KryptoKlasy
             Console.ReadKey();
         }
 
+        private static Gielda ZainicjalizujGielde()
+        {
+            Gielda gielda = new Gielda();
+            for (int i = 0; i < 100; i++)
+                gielda.WygenerujIZapiszSnapshot();
+            return gielda;
+        }
+
         public static void ScenariuszGielda()
         {
             Console.WriteLine("Inicjalizacja giełdy");
@@ -71,7 +79,7 @@ namespace KryptoKlasy
 
             Console.WriteLine("Wylogowywanie sie:");
             Czity.Loading(700);
-            uzytkownik = serwis.WylogujSie(uzytkownik);
+            serwis.WylogujSie(ref uzytkownik);
 
             Console.WriteLine("Proba wykonania zmiany hasla po wylogowaniu:");
             Czity.Loading();

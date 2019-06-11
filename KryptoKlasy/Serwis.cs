@@ -36,13 +36,18 @@ namespace KryptoKlasy
             return true;
         }
         public bool PrzypomnijHaslo(string email) => uzytkownicy.Where(x => x.Email == email).FirstOrDefault() != null;
-        public bool OdblokujHaslo(Uzytkownik uzytkownik) => true;
-        public Uzytkownik WylogujSie(Uzytkownik uzytkownik)
+        public bool OdblokujHaslo(Uzytkownik uzytkownik) => uzytkownik != null;
+        public Uzytkownik WylogujSie(ref Uzytkownik uzytkownik)
         {
             Console.BackgroundColor = ConsoleColor.Black;
-            return null;
+            return uzytkownik = null;
         }
-        public bool UsunDane(Uzytkownik uzytkownik) => uzytkownicy.Remove(uzytkownik);
+        public bool UsunDane(ref Uzytkownik uzytkownik)
+        {
+            var result = uzytkownicy.Remove(uzytkownik);
+            uzytkownik = null;
+            return result;
+        }
         public bool AktualizujDaneFirmy(UzytkownikFirmowy uzytkownikFirmowy, string nowyAdres)
         {
             uzytkownikFirmowy.AdresFirmy = nowyAdres;
