@@ -21,6 +21,6 @@ namespace KryptoKlasy
         public Uzytkownik Odbiorca { get; private set; }
         public Portfel.Waluta Waluta { get; private set; }
         public float Kwota { get; private set; }
-        public StanyTransakcji Stan { get; private set; }
+        public StanyTransakcji Stan { get; set; }
     }
 }

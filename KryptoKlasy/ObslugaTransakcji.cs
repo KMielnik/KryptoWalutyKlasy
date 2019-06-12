@@ -28,6 +28,7 @@ namespace KryptoKlasy
                 case Portfel.Waluta.LiteCoin:
                     throw new Exception("Brak obslugi kont LiteCoin.");
             }
+            transakcja.Stan = Transakcja.StanyTransakcji.Zakończona;
             historiaTransakcji.Add(transakcja);
             return true;
         }
