@@ -14,14 +14,19 @@ namespace KryptoKlasy
         public bool DokonajTransakcji(Uzytkownik nadawca, Uzytkownik odbiorca, Portfel.Waluta waluta, float kwota)
         {
             if (kwota <= 0) return false;
+            
             var transakcja = new Transakcja(nadawca, odbiorca, waluta, kwota);
             switch(waluta)
             {
                 case Portfel.Waluta.Bitcoin:
+                    if (nadawca.PortfelBitcoin.Saldo < kwota)
+                        return false;
                     nadawca.PortfelBitcoin.Saldo -= kwota;
                     odbiorca.PortfelBitcoin.Saldo += kwota;
                 break;
                 case Portfel.Waluta.DogeCoin:
+                    if (nadawca.PortfelDogecoin.Saldo < kwota)
+                        return false;
                     nadawca.PortfelDogecoin.Saldo -= kwota;
                     odbiorca.PortfelDogecoin.Saldo += kwota;
                 break;
