@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28721.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KryptoKlasy", "KryptoKlasy\KryptoKlasy.csproj", "{B1DF0469-6F8C-46A3-9807-E5115991A2AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KryptoWaluty", "KryptoKlasy\KryptoWaluty.csproj", "{B1DF0469-6F8C-46A3-9807-E5115991A2AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KryptoKlasyTests", "KryptoKlasyTests\KryptoKlasyTests.csproj", "{9FF0128A-C2EF-45E7-AAC4-16EBC3836F91}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KryptoWalutyTests", "KryptoKlasyTests\KryptoWalutyTests.csproj", "{9FF0128A-C2EF-45E7-AAC4-16EBC3836F91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

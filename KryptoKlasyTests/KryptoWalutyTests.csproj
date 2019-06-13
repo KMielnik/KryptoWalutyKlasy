@@ -64,9 +64,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KryptoKlasy\KryptoKlasy.csproj">
+    <ProjectReference Include="..\KryptoKlasy\KryptoWaluty.csproj">
       <Project>{b1df0469-6f8c-46a3-9807-e5115991a2ad}</Project>
-      <Name>KryptoKlasy</Name>
+      <Name>KryptoWaluty</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

@@ -24,6 +24,8 @@ namespace KryptoKlasyTests
 
             var uzytkownik = serwis.ZalogujSie("email@wp.pl", "haslo1");
             uzytkownik.PortfelFIAT.Saldo = oryginalneSaldo;
+            uzytkownik.PortfelBitcoin.Saldo = oryginalneSaldo;
+            uzytkownik.PortfelDogecoin.Saldo = oryginalneSaldo;
         }
 
         [Test]
@@ -54,9 +56,9 @@ namespace KryptoKlasyTests
             var uzytkownik2 = serwis.ZalogujSie("email2@wp.pl", "haslo2");
 
             //uzytkownik 1 bierze udzial
-            obslugaTransakcji.DokonajTransakcji(uzytkownik1, uzytkownik2,Portfel.Waluta.DogeCoin,123.0f);
-            obslugaTransakcji.DokonajTransakcji(uzytkownik1, uzytkownik2,Portfel.Waluta.FIAT,111.0f);
-            obslugaTransakcji.DokonajTransakcji(uzytkownik2, uzytkownik1,Portfel.Waluta.DogeCoin,17.13f);
+            var erlo = obslugaTransakcji.DokonajTransakcji(uzytkownik1, uzytkownik2,Portfel.Waluta.DogeCoin,23.0f);
+            erlo=obslugaTransakcji.DokonajTransakcji(uzytkownik1, uzytkownik2,Portfel.Waluta.FIAT,11.0f);
+            erlo=obslugaTransakcji.DokonajTransakcji(uzytkownik2, uzytkownik1,Portfel.Waluta.DogeCoin,17.13f);
 
             //uzytkownik 1 nie bierze udzialu
             obslugaTransakcji.DokonajTransakcji(uzytkownik2, uzytkownik2, Portfel.Waluta.Bitcoin,3.0f);

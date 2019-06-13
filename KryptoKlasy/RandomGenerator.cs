@@ -7,7 +7,7 @@ namespace KryptoKlasy
         static private RandomGenerator instance;
         private Random random;
 
-        public RandomGenerator()
+        private RandomGenerator()
         {
             this.random = new Random();
         }
